@@ -32,6 +32,9 @@
       "^components$": "<rootDir>/private/jest/componentsMock.js"
     }
   },
+  "jshintConfig": {
+    "esversion": 6
+  },
   "devDependencies": {
     "@kadira/storybook": "^2.35.2",
     "@webpack-blocks/dev-server2": "^0.4.0",

@@ -1,4 +1,5 @@
 // https://github.com/diegohaz/arc/wiki/Webpack
+/*jshint esversion: 6 */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const devServer = require('@webpack-blocks/dev-server2')
