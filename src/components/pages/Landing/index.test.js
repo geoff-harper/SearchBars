@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import HomePage from '.'
+import Landing from '.'
 
 it('renders', () => {
-  shallow(<HomePage />)
+  shallow(<Landing />)
 })
