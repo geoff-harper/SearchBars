@@ -11,6 +11,8 @@ injectGlobal`
   body {
     margin: 0;
   }
+
+  .logo-container { max-width: 200px; } 
 `
 
 const App = () => {

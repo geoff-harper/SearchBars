@@ -1,14 +1,13 @@
 import React from 'react'
 
-import { Header } from 'components'
+import { Header, BarList } from 'components'
 
 const Landing = () => {
   return (
-    <div>
-      Whats good?
+    <div className="wrapper">
       <Header />
+      <BarList />
     </div>
-
   )
 }
 

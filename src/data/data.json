@@ -17,7 +17,8 @@
         "onTap":"true"
       }
     ],
-    "address": ""
+    "address": "",
+    "description": "A description"
   },
   "The Keg": {
     "brands": [
@@ -37,6 +38,7 @@
         "onTap":"true"
       }
     ],
-    "address": ""
+    "address": "",
+    "description": "A description"
   }
 }
