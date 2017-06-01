@@ -1,5 +1,6 @@
-{
-  "Cat's Socialhouse": {
+[
+  {
+    "name": "Cat's Socialhouse",
     "brands": [
       {
         "name": "Social Lager",
@@ -20,7 +21,8 @@
     "address": "",
     "description": "A description"
   },
-  "The Keg": {
+  {
+    "name": "The Keg",
     "brands": [
       {
         "name": "Budweiser",
@@ -41,4 +43,4 @@
     "address": "",
     "description": "A description"
   }
-}
+]

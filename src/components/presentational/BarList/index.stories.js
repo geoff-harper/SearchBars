@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
-import { BarList } from 'components'
+import { BarListItem } from 'components'
 
 storiesOf('HomePage', module)
   .add('default', () => (
-    <BarList />
+    <BarListItem />
   ))

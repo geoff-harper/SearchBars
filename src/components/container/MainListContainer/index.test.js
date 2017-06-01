@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import BarList from '.'
+import MainListContainer from '.'
 
 it('renders', () => {
-  shallow(<BarList />)
+  shallow(<MainListContainer />)
 })

@@ -34,6 +34,14 @@ const assets = () => () => ({
   },
 })
 
+const jsonL = () => () => ({
+  module: {
+    rules: [
+      { test: /\.json$/, exclude: /node_modules/, loader: 'json' },
+    ],
+  },
+})
+
 const resolveModules = modules => () => ({
   resolve: {
     modules: [].concat(modules, ['node_modules']),
