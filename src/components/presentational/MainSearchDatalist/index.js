@@ -12,6 +12,8 @@ const MainSearchDatalist = ({ bars, brands, activeFilter }) => {
     list = [...brands, ...bars];
   }
 
+  list.sort();
+
   return (
     <datalist id="searchOptions">
       {list.map((item, i) =>

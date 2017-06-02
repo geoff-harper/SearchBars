@@ -1,27 +1,5 @@
 [
   {
-    "name": "Cat's Socialhouse",
-    "brands": [
-      {
-        "name": "Social Lager",
-        "brews": ["lager"],
-        "onTap":"true"
-      },
-      {
-        "name": "Budweiser",
-        "brews": ["lager", "light"],
-        "onTap":"false"
-      },
-      {
-        "name": "Granville Island Lager",
-        "brews": ["lager", "honey", "dark"],
-        "onTap":"true"
-      }
-    ],
-    "address": "",
-    "description": "A description"
-  },
-  {
     "name": "The Keg",
     "brands": [
       {
@@ -33,6 +11,28 @@
         "name": "33 Acres",
         "brews": ["lager", "pilsner"],
         "onTap":"true"
+      },
+      {
+        "name": "Granville Island Lager",
+        "brews": ["lager", "honey", "dark"],
+        "onTap":"true"
+      }
+    ],
+    "address": "",
+    "description": "A description"
+  },
+  {
+    "name": "Cat's Socialhouse",
+    "brands": [
+      {
+        "name": "Social Lager",
+        "brews": ["lager"],
+        "onTap":"true"
+      },
+      {
+        "name": "Budweiser",
+        "brews": ["lager", "light"],
+        "onTap":"false"
       },
       {
         "name": "Granville Island Lager",

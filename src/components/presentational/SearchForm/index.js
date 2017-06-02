@@ -15,7 +15,7 @@ class SearchForm extends React.Component {
   }
 
   handleInput(e) {
-    this.props.changeFilter(e.target.value)
+    (e.type === "click") ? (this.props.changeFilter(""), e.target.value = "") : this.props.changeFilter(e.target.value)
   }
 
   changeDatalist(e) {
@@ -31,7 +31,7 @@ class SearchForm extends React.Component {
       <form>
         <p>I'm trying to find a <button name="barButton" onClick={this.changeDatalist}>bar's beer list</button> / <button name="beerButton" onClick={this.changeDatalist}>certain beer</button> / <button name="anythingButton" onClick={this.changeDatalist}>anything</button>.</p>
 
-        <input id="mainSearch" type="text" list="searchOptions" onChange={this.handleInput} />
+        <input id="mainSearch" type="text" list="searchOptions" onChange={this.handleInput} onClick={this.handleInput} />
         <MainSearchDatalist brands={this.props.brands} bars={this.props.bars} activeFilter={this.state.activeButton} />
       </form>
     )

@@ -6,7 +6,20 @@ const BarList = ({data, searchFilter}) => {
 
   const _searchFilter = searchFilter.toLowerCase().trim();
 
-  const filteredBars = data.filter(bar => bar.name.toLowerCase().includes(_searchFilter))
+  const checkBrands = (brands) => {
+    let matches = [];
+    for(let instance of brands) {
+      if(instance.name.toLowerCase().includes(_searchFilter))
+        return true;
+    }
+  }
+
+  const filteredBars = data.filter(bar =>
+    (
+      bar.name.toLowerCase().includes(_searchFilter) ||
+      checkBrands(bar.brands)
+    )
+  );
 
   return (
     <ul>
