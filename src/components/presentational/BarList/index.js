@@ -4,17 +4,13 @@ import { BarListItem } from 'components'
 
 const BarList = ({data, searchFilter}) => {
 
-  //console.log(data);
-  console.log(searchFilter);
-  //console.log("Cat's".includes(searchFilter));
+  const _searchFilter = searchFilter.toLowerCase().trim();
 
-  const filteredBars = data.filter(bar => {
-    bar.name.includes(searchFilter)
-  })
-  console.log(filteredBars);
+  const filteredBars = data.filter(bar => bar.name.toLowerCase().includes(_searchFilter))
+
   return (
     <ul>
-      {data.map((bar, i) =>
+      {filteredBars.map((bar, i) =>
         <BarListItem
           key={i}
           name={bar.name}

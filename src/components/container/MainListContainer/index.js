@@ -9,21 +9,23 @@ class MainListContainer extends React.Component {
 
     this.state = {
       data: [],
-      searchFilter: ""
+      searchFilter: "",
+      uniqueBrands: [],
+      uniqueBars: []
     }
 
     this.handleInput = this.handleInput.bind(this);
+    this.getBars = this.getBars.bind(this);
+    this.getBrands = this.getBrands.bind(this);
   }
 
-  componentDidMount() {
-    Axios.get('./data/data.json').then((response) =>
-      this.setState({
-        data: response.data
-      })
-    )
+  componentWillMount() {
+    Axios.get('./data/data.json').then(response => {
+      this.setState({ data: response.data }),
+      this.getBrands(),
+      this.getBars()
+    }).catch(console.log.bind(console));
   }
-
-  componentWillUnmount() { }
 
   handleInput(value) {
     this.setState({
@@ -31,10 +33,38 @@ class MainListContainer extends React.Component {
     });
   }
 
+  getBrands() {
+    let unsortedBrands = [];
+
+    for(let bar of this.state.data) {
+      bar.brands.map((brand, i) =>
+        unsortedBrands = [...unsortedBrands, brand.name]
+      )
+    }
+
+    const sortedBrands = Array.from(new Set(unsortedBrands));
+
+    this.setState({
+      uniqueBrands: sortedBrands
+    })
+  }
+
+  getBars() {
+    let bars = [];
+
+    for (var bar of this.state.data) {
+      bars = [...bars, bar.name];
+    }
+
+    this.setState({
+      uniqueBars: bars
+    })
+  }
+
   render() {
     return (
       <section>
-        <SearchForm changeFilter={this.handleInput} />
+        <SearchForm changeFilter={this.handleInput} brands={this.state.uniqueBrands} bars={this.state.uniqueBars} />
         <BarList data={this.state.data} searchFilter={this.state.searchFilter} />
       </section>
     )
