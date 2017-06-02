@@ -7,8 +7,9 @@ const BarListItem = ({name, description, brands, address}) => {
       <p>{description}</p>
       <ul>
         {brands.map((brand, i) =>
-          <li>{brand.name}</li>
+          <li key={i}>{brand.name}</li>
         )}
+        <li>...see more</li>
       </ul>
     </li>
   )

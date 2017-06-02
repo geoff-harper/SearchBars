@@ -1,35 +1,41 @@
 import React from 'react'
 import Axios from 'axios'
 
-import { BarList } from 'components'
+import { BarList, SearchForm } from 'components'
 
 class MainListContainer extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
+
     this.state = {
-      Bars: []
+      data: [],
+      searchFilter: ""
     }
+
+    this.handleInput = this.handleInput.bind(this);
   }
 
   componentDidMount() {
-    Axios.get('./data/data.json').then((response) => {
-        console.log(response.data)
-        this.setState({
-          Bars: response.data
-        })
-    })
+    Axios.get('./data/data.json').then((response) =>
+      this.setState({
+        data: response.data
+      })
+    )
   }
 
   componentWillUnmount() { }
 
+  handleInput(value) {
+    this.setState({
+      searchFilter: value
+    });
+  }
+
   render() {
     return (
       <section>
-        <p>I'm trying to find a <button>bar's beer list</button> / <button>certain beer</button>.</p>
-
-        <input id="mainSearch" type="text" list="barOptions" />
-
-        <BarList bars={this.state.Bars} />
+        <SearchForm changeFilter={this.handleInput} />
+        <BarList data={this.state.data} searchFilter={this.state.searchFilter} />
       </section>
     )
   }
