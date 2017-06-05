@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MainSearchDatalist } from 'components'
+import { MainSearchInput } from 'components'
 
 class SearchForm extends React.Component {
   constructor() {
@@ -10,15 +10,15 @@ class SearchForm extends React.Component {
       activeButton: ""
     }
 
-    this.handleInput = this.handleInput.bind(this);
-    this.changeDatalist = this.changeDatalist.bind(this);
+    this.changeFilter = this.changeFilter.bind(this);
+    this.changeSuggestionCategory = this.changeSuggestionCategory.bind(this);
   }
 
-  handleInput(e) {
-    (e.type === "click") ? (this.props.changeFilter(""), e.target.value = "") : this.props.changeFilter(e.target.value)
+  changeFilter(e) {
+    this.props.changeFilter(e.target.value)
   }
 
-  changeDatalist(e) {
+  changeSuggestionCategory(e) {
     e.preventDefault();
     this.setState({
       activeButton: e.target.name
@@ -29,10 +29,9 @@ class SearchForm extends React.Component {
 
     return (
       <form>
-        <p>I'm trying to find a <button name="barButton" onClick={this.changeDatalist}>bar's beer list</button> / <button name="beerButton" onClick={this.changeDatalist}>certain beer</button> / <button name="anythingButton" onClick={this.changeDatalist}>anything</button>.</p>
+        <p>I'm trying to find a <button name="barButton" onClick={this.changeSuggestionCategory}>bar's beer list</button> / <button name="beerButton" onClick={this.changeSuggestionCategory}>certain beer</button> / <button name="anythingButton" onClick={this.changeSuggestionCategory}>anything</button>.</p>
 
-        <input id="mainSearch" type="text" list="searchOptions" onChange={this.handleInput} onClick={this.handleInput} />
-        <MainSearchDatalist brands={this.props.brands} bars={this.props.bars} activeFilter={this.state.activeButton} />
+        <MainSearchInput suggestionList={this.props.brands} changeFilter={this.changeFilter} />
       </form>
     )
   }

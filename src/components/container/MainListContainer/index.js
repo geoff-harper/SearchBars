@@ -14,7 +14,7 @@ class MainListContainer extends React.Component {
       uniqueBars: []
     }
 
-    this.handleInput = this.handleInput.bind(this);
+    this.changeFilter = this.changeFilter.bind(this);
     this.getBars = this.getBars.bind(this);
     this.getBrands = this.getBrands.bind(this);
   }
@@ -27,7 +27,7 @@ class MainListContainer extends React.Component {
     }).catch(console.log.bind(console));
   }
 
-  handleInput(value) {
+  changeFilter(value) {
     this.setState({
       searchFilter: value
     });
@@ -64,7 +64,7 @@ class MainListContainer extends React.Component {
   render() {
     return (
       <section>
-        <SearchForm changeFilter={this.handleInput} brands={this.state.uniqueBrands} bars={this.state.uniqueBars} />
+        <SearchForm changeFilter={this.changeFilter} brands={this.state.uniqueBrands} bars={this.state.uniqueBars} />
         <BarList data={this.state.data} searchFilter={this.state.searchFilter} />
       </section>
     )
