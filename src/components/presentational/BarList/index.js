@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BarListItem } from 'components'
 
-const BarList = ({data, searchFilter}) => {
+const BarList = ({barData, searchFilter}) => {
 
   const _searchFilter = searchFilter.toLowerCase().trim();
 
@@ -14,7 +14,7 @@ const BarList = ({data, searchFilter}) => {
     }
   }
 
-  const filteredBars = data.filter(bar =>
+  const filteredBars = barData.filter(bar =>
     (
       bar.name.toLowerCase().includes(_searchFilter) ||
       checkBrands(bar.brands)

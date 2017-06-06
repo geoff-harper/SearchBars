@@ -2,8 +2,8 @@ import React from 'react'
 import Autosuggest from 'react-autosuggest'
 
 class MainSearchInput extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       value: '',
@@ -13,16 +13,22 @@ class MainSearchInput extends React.Component {
     this.changeFilter = this.changeFilter.bind(this)
   }
 
-  getSuggestions = value => {
+  componentWillMount() {
+    this.setState({ suggestions: [...this.props.filteredList] })
+  }
+
+  getSuggestions(value) {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    return inputLength === 0 ? [] : this.props.suggestionList.filter(lang =>
-      lang.toLowerCase().slice(0, inputLength) === inputValue
+    return this.props.filteredList.filter(opt =>
+      opt.toLowerCase().slice(0, inputLength) === inputValue
     );
   }
 
-  getSuggestionValue = suggestion => suggestion;
+  getSuggestionValue(suggestion) {
+    return suggestion;
+  }
 
   renderSuggestion = suggestion => (
     <div>
@@ -30,15 +36,11 @@ class MainSearchInput extends React.Component {
     </div>
   )
 
-  shouldRenderSuggestions = () => {
-    return true;
-  }
-
   onChange = (event, { newValue, method }) => {
     this.setState({
       value: newValue
     });
-    this.changeFilter(event);
+    this.changeFilter(newValue);
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
@@ -53,13 +55,16 @@ class MainSearchInput extends React.Component {
     })
   }
 
-  changeFilter(e) {
-    this.props.changeFilter(e.target.value)
+  shouldRenderSuggestions(value) {
+    return true;
+  }
+
+  changeFilter(newValue) {
+    this.props.changeFilter(newValue)
   }
 
   render() {
     const { value, suggestions } = this.state;
-
     const inputProps = {
       value,
       onChange: this.onChange

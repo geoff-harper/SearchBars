@@ -1,27 +1,27 @@
 import React from 'react'
 import Axios from 'axios'
 
-import { BarList, SearchForm } from 'components'
+import { BarList, MainSearchOptions, MainSearchInput } from 'components'
 
 class MainListContainer extends React.Component {
   constructor () {
     super()
 
     this.state = {
-      data: [],
-      searchFilter: "",
-      uniqueBrands: [],
-      uniqueBars: []
+      barData: [],
+      activeButton: "",
+      searchFilter: ""
     }
 
     this.changeFilter = this.changeFilter.bind(this);
+    this.changeSuggestionCategory = this.changeSuggestionCategory.bind(this);
     this.getBars = this.getBars.bind(this);
     this.getBrands = this.getBrands.bind(this);
   }
 
   componentWillMount() {
     Axios.get('./data/data.json').then(response => {
-      this.setState({ data: response.data }),
+      this.setState({ barData: response.data }),
       this.getBrands(),
       this.getBars()
     }).catch(console.log.bind(console));
@@ -33,10 +33,16 @@ class MainListContainer extends React.Component {
     });
   }
 
+  changeSuggestionCategory(value) {
+    this.setState({
+      activeButton: value
+    });
+  }
+
   getBrands() {
     let unsortedBrands = [];
 
-    for(let bar of this.state.data) {
+    for(let bar of this.state.barData) {
       bar.brands.map((brand, i) =>
         unsortedBrands = [...unsortedBrands, brand.name]
       )
@@ -44,28 +50,39 @@ class MainListContainer extends React.Component {
 
     const sortedBrands = Array.from(new Set(unsortedBrands));
 
-    this.setState({
-      uniqueBrands: sortedBrands
-    })
+    return sortedBrands;
   }
 
   getBars() {
     let bars = [];
 
-    for (var bar of this.state.data) {
+    for (let bar of this.state.barData) {
       bars = [...bars, bar.name];
     }
 
-    this.setState({
-      uniqueBars: bars
-    })
+    return bars;
+  }
+
+  filterList() {
+    if(this.state.activeButton === "barButton") {
+      return [...this.getBars()];
+    } else if(this.state.activeButton === "beerButton") {
+      return [...this.getBrands()];
+    } else {
+      return [...this.getBars(),...this.getBrands()];
+    }
   }
 
   render() {
+    const filteredList = this.filterList();
+
     return (
       <section>
-        <SearchForm changeFilter={this.changeFilter} brands={this.state.uniqueBrands} bars={this.state.uniqueBars} />
-        <BarList data={this.state.data} searchFilter={this.state.searchFilter} />
+        <form>
+          <MainSearchOptions changeSuggestionCategory={this.changeSuggestionCategory} />
+          <MainSearchInput filteredList={filteredList} changeFilter={this.changeFilter} />
+        </form>
+        <BarList barData={this.state.barData} searchFilter={this.state.searchFilter} />
       </section>
     )
   }
