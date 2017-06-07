@@ -12,8 +12,13 @@ injectGlobal`
     margin: 0;
   }
 
-  .logo-container { max-width: 200px; } 
+  .logo-container { max-width: 200px; opacity: 0; }
+  fieldset { border: none; }
 `
+
+//TODO:
+//      suggestions stay open on filter click
+//      see more button in list results
 
 const App = () => {
   return (

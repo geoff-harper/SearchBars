@@ -7,7 +7,8 @@ class MainSearchInput extends React.Component {
 
     this.state = {
       value: '',
-      suggestions: []
+      suggestions: [],
+      noSuggestions: false
     }
 
     this.changeFilter = this.changeFilter.bind(this)
@@ -31,9 +32,7 @@ class MainSearchInput extends React.Component {
   }
 
   renderSuggestion = suggestion => (
-    <div>
-      { suggestion }
-    </div>
+    suggestion
   )
 
   onChange = (event, { newValue, method }) => {
@@ -44,9 +43,14 @@ class MainSearchInput extends React.Component {
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
+    const suggestions = this.getSuggestions(value);
+    const isInputBlank = value.trim() === '';
+    const noSuggestions = !isInputBlank && suggestions.length === 0;
+
     this.setState({
-      suggestions: this.getSuggestions(value)
-    })
+      suggestions,
+      noSuggestions
+    });
   }
 
   onSuggestionsClearRequested = () => {
@@ -71,15 +75,23 @@ class MainSearchInput extends React.Component {
     };
 
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={this.renderSuggestion}
-        shouldRenderSuggestions={this.shouldRenderSuggestions}
-        inputProps={inputProps}
-      />
+      <fieldset>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={this.getSuggestionValue}
+          renderSuggestion={this.renderSuggestion}
+          shouldRenderSuggestions={this.shouldRenderSuggestions}
+          inputProps={inputProps}
+        />
+        {
+          this.state.noSuggestions &&
+            <p className="no-suggestions">
+              No suggestions
+            </p>
+        }
+      </fieldset>
     )
   }
 }
