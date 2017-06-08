@@ -29,7 +29,8 @@ const BarList = ({barData, searchFilter}) => {
           name={bar.name}
           description={bar.description}
           brands={bar.brands}
-          address={bar.address}/>
+          address={bar.address}
+          searchFilter={searchFilter}/>
       )}
     </ul>
   )

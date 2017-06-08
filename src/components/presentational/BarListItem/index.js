@@ -12,15 +12,26 @@ class BarListItem extends React.Component {
     this.updateBrands = this.updateBrands.bind(this)
   }
 
-  toggleList() {
-    (this.state.showAll) ? this.setState({showAll:false}) : this.setState({showAll:true})
+  toggleList(event) {
+    (this.state.showAll) ? this.setState({showAll:false}) : this.setState({showAll:true});
+    //event.stopPropagation();
   }
 
   updateBrands() {
+    var _brands = this.props.brands;
+    var _searchFilter = this.props.searchFilter.toLowerCase().trim();
+    var searchTargetIndex = "";
+
+    _brands.forEach((brand, index) => {
+      (brand.name.toLowerCase().trim() === _searchFilter) ? searchTargetIndex = index : null
+    });
+
+    _brands.splice(0, 0, _brands.splice(searchTargetIndex, 1)[0]);
+
     if(this.state.showAll) {
-      return (this.props.brands);
+      return _brands;
     } else {
-      return (this.props.brands.slice(0,2));
+      return (_brands.slice(0,2));
     }
   }
 
