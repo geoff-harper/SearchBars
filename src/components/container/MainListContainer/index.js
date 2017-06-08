@@ -1,5 +1,5 @@
 import React from 'react'
-import Axios from 'axios'
+
 
 import { BarList, MainSearchOptions, MainSearchInput } from 'components'
 
@@ -8,7 +8,6 @@ class MainListContainer extends React.Component {
     super()
 
     this.state = {
-      barData: [],
       activeButton: "",
       searchFilter: ""
     }
@@ -17,14 +16,6 @@ class MainListContainer extends React.Component {
     this.changeSuggestionCategory = this.changeSuggestionCategory.bind(this);
     this.getBars = this.getBars.bind(this);
     this.getBrands = this.getBrands.bind(this);
-  }
-
-  componentWillMount() {
-    Axios.get('./data/data.json').then(response => {
-      this.setState({ barData: response.data }),
-      this.getBrands(),
-      this.getBars()
-    }).catch(console.log.bind(console));
   }
 
   changeFilter(value) {
@@ -42,7 +33,7 @@ class MainListContainer extends React.Component {
   getBrands() {
     let unsortedBrands = [];
 
-    for(let bar of this.state.barData) {
+    for(let bar of this.props.barData) {
       bar.brands.map((brand, i) =>
         unsortedBrands = [...unsortedBrands, brand.name]
       )
@@ -56,7 +47,7 @@ class MainListContainer extends React.Component {
   getBars() {
     let bars = [];
 
-    for (let bar of this.state.barData) {
+    for (let bar of this.props.barData) {
       bars = [...bars, bar.name];
     }
 
@@ -82,7 +73,7 @@ class MainListContainer extends React.Component {
           <MainSearchOptions changeSuggestionCategory={this.changeSuggestionCategory} />
           <MainSearchInput filteredList={filteredList} changeFilter={this.changeFilter} />
         </form>
-        <BarList barData={this.state.barData} searchFilter={this.state.searchFilter} />
+        <BarList barData={this.props.barData} searchFilter={this.state.searchFilter} />
       </section>
     )
   }
