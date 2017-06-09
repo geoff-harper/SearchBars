@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BarListItem } from 'components'
 
-const BarList = ({barData, searchFilter}) => {
+const BarList = ({barData, searchFilter, barSelected}) => {
 
   const _searchFilter = searchFilter.toLowerCase().trim();
 
@@ -21,16 +21,22 @@ const BarList = ({barData, searchFilter}) => {
     )
   );
 
+  const barSelectedFunc = (barID) => {
+    barSelected(barID)
+  }
+
   return (
     <ul>
-      {filteredBars.map((bar, i) =>
+      {filteredBars.map((bar) =>
         <BarListItem
-          key={i}
+          key={bar.id}
+          barID={bar.id}
           name={bar.name}
           description={bar.description}
           brands={bar.brands}
           address={bar.address}
-          searchFilter={searchFilter}/>
+          searchFilter={searchFilter}
+          barSelected={barSelectedFunc} />
       )}
     </ul>
   )

@@ -10,19 +10,13 @@ class BarViewContainer extends React.Component {
   }
 
   render() {
-    const bar = this.props.barData;
-
-    if(bar) {
-      return (
-        <section>
-          <BarDetails name={bar.name} description={bar.description} />
-          <BarMap name={bar.name} long={bar.longitude} lat={bar.latitude} />
-          <BarContactInfo address={bar.address} phone={bar.phone} />
-        </section>
-      )
-    } else {
-      return(<section />)
-    }
+    return (
+      <section>
+        <BarDetails name={this.props.barData.name} description={this.props.barData.description} />
+        <BarMap name={this.props.barData.name} long={this.props.barData.longitude} lat={this.props.barData.latitude} />
+        <BarContactInfo address={this.props.barData.address} phone={this.props.barData.phone} />
+      </section>
+    )
   }
 }
 

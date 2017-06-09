@@ -29,7 +29,7 @@ class BarMap extends React.Component {
   render(){
     return (
       <div className="map-container">
-        <div ref="map" style={{height: '80%', width: '100%'}}></div>
+        <div className="map" ref="map"></div>
         { !this.map && <div className="center-md">Loading...</div> }
       </div>
     )

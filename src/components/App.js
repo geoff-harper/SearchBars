@@ -14,7 +14,7 @@ injectGlobal`
 
   .logo-container { max-width: 200px; opacity: 0; }
   fieldset { border: none; }
-  .map-container {height: 200px; width: 200px}
+  .map {height: 200px; width: 200px}
 `
 
 //TODO:

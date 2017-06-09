@@ -1,8 +1,8 @@
 import React from 'react'
 
 class BarListItem extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       showAll: false
@@ -10,11 +10,12 @@ class BarListItem extends React.Component {
 
     this.toggleList = this.toggleList.bind(this)
     this.updateBrands = this.updateBrands.bind(this)
+    this.barSelected = this.barSelected.bind(this)
   }
 
   toggleList(event) {
     (this.state.showAll) ? this.setState({showAll:false}) : this.setState({showAll:true});
-    //event.stopPropagation();
+    event.stopPropagation();
   }
 
   updateBrands() {
@@ -35,12 +36,16 @@ class BarListItem extends React.Component {
     }
   }
 
+  barSelected() {
+    this.props.barSelected(this.props.barID)
+  }
+
   render() {
     var _brands = this.updateBrands();
     var prompt = (this.state.showAll) ? "... see less" : "... see more"
 
     return (
-      <li>
+      <li onClick={this.barSelected}>
         <h3>{this.props.name}</h3>
         <p>{this.props.description}</p>
         <ul>

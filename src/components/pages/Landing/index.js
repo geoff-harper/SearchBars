@@ -8,8 +8,11 @@ class Landing extends React.Component {
     super()
 
     this.state = {
-      barData: []
+      barData: [],
+      selectedBar: {}
     }
+
+    this.barSelected = this.barSelected.bind(this);
   }
 
   componentWillMount() {
@@ -18,12 +21,22 @@ class Landing extends React.Component {
     }).catch(console.log.bind(console));
   }
 
+  barSelected(barID) {
+    const _selectedBar = this.state.barData.filter(bar => (
+      bar.id === barID))
+
+    this.setState({
+      selectedBar: _selectedBar[0]
+    })
+  }
+
   render() {
     return (
       <div className="wrapper">
         <Header />
-        <MainListContainer barData={this.state.barData} />
-        <BarViewContainer barData={this.state.barData[0]} />
+        <MainListContainer barData={this.state.barData} barSelected={this.barSelected}  />
+        { Object.getOwnPropertyNames(this.state.selectedBar).length > 0 ?
+          <BarViewContainer barData={this.state.selectedBar} /> : null }
       </div>
     )
   }

@@ -64,6 +64,10 @@ class MainListContainer extends React.Component {
     }
   }
 
+  barSelected(barID) {
+    this.props.barSelected(barID)
+  }
+
   render() {
     const filteredList = this.filterList();
 
@@ -73,7 +77,10 @@ class MainListContainer extends React.Component {
           <MainSearchOptions changeSuggestionCategory={this.changeSuggestionCategory} />
           <MainSearchInput filteredList={filteredList} changeFilter={this.changeFilter} />
         </form>
-        <BarList barData={this.props.barData} searchFilter={this.state.searchFilter} />
+        <BarList
+          barData={this.props.barData}
+          searchFilter={this.state.searchFilter}
+          barSelected={this.props.barSelected} />
       </section>
     )
   }
