@@ -9,24 +9,23 @@ class BarMap extends React.Component {
     this.map = null;
   }
 
-  componentWillReceiveProps ({ isScriptLoaded, isScriptLoadSucceed }) {
-    if (isScriptLoaded && !this.props.isScriptLoaded) { // load finished
-      if (isScriptLoadSucceed) {
-        this.map = new google.maps.Map(this.refs.map, {
-          center: {lat: this.props.lat, lng: this.props.long},
-          zoom: 15
-        });
+  renderNewMap(isScriptLoaded, isScriptLoadSucceed) {
+    if(isScriptLoadSucceed) {
+      this.map = new google.maps.Map(this.refs.map, {
+        center: {lat: this.props.lat, lng: this.props.long},
+        zoom: 15
+      });
 
-        const marker = new google.maps.Marker({
-          position: {lat: this.props.lat, lng: this.props.long},
-          map: this.map,
-          title: this.props.name
-        });
-      }
+      const marker = new google.maps.Marker({
+        position: {lat: this.props.lat, lng: this.props.long},
+        map: this.map,
+        title: this.props.name
+      });
     }
   }
 
-  render(){
+  render() {
+    this.renderNewMap(this.props.isScriptLoaded, this.props.isScriptLoadSucceed);
     return (
       <div className="map-container">
         <div className="map" ref="map"></div>
