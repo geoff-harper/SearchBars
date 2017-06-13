@@ -9,10 +9,12 @@ class Landing extends React.Component {
 
     this.state = {
       barData: [],
-      selectedBar: {}
+      selectedBar: {},
+      barViewOpen: false
     }
 
     this.barSelected = this.barSelected.bind(this);
+    this.closeBarView = this.closeBarView.bind(this);
   }
 
   componentWillMount() {
@@ -26,7 +28,14 @@ class Landing extends React.Component {
       bar.id === barID))
 
     this.setState({
-      selectedBar: _selectedBar[0]
+      selectedBar: _selectedBar[0],
+      barViewOpen: true
+    })
+  }
+
+  closeBarView() {
+    this.setState({
+      barViewOpen: false
     })
   }
 
@@ -34,9 +43,13 @@ class Landing extends React.Component {
     return (
       <div className="wrapper">
         <Header />
-        <MainListContainer barData={this.state.barData} barSelected={this.barSelected}  />
-        { Object.getOwnPropertyNames(this.state.selectedBar).length > 0 ?
-          <BarViewContainer barData={this.state.selectedBar} /> : null }
+        <MainListContainer
+          barData={this.state.barData}
+          barSelected={this.barSelected}  />
+        { this.state.barViewOpen ?
+          <BarViewContainer
+            barData={this.state.selectedBar}
+            closeBarView={this.closeBarView} /> : null }
       </div>
     )
   }
