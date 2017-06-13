@@ -1,9 +1,9 @@
 import React from 'react'
 
-const BrewList = ({brands}) => {
+const BrandList = ({brands}) => {
 
   return (
-    <ul>
+    <ul className="brew-list">
       {brands.map((brand, i) =>
         <li key={i}>
           <span>{brand.name}</span> - {brand.brews.map((brew, i) => (
@@ -15,4 +15,4 @@ const BrewList = ({brands}) => {
   )
 }
 
-export default BrewList
+export default BrandList

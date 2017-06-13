@@ -15,11 +15,8 @@ injectGlobal`
   .logo-container { max-width: 200px; opacity: 0; }
   fieldset { border: none; }
   .map {height: 200px; width: 200px}
+  .activeBrew {color: red;}
 `
-
-//TODO:
-//      suggestions stay open on filter click
-//      see more button in list results
 
 const App = () => {
   return (

@@ -6,7 +6,7 @@ const BarContactInfo = ({address, phone}) => {
                           .replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
 
   return (
-    <div className="bar-contact">
+    <div className="barView-contact">
       <p>{address}</p>
       <p><a href={`tel:${phoneLink}`}>{phone}</a></p>
     </div>

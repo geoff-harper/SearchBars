@@ -8,23 +8,25 @@ class BarViewContainer extends React.Component {
   }
 
   render() {
+    const bar = this.props.barData;
+
     return (
       <section>
         <button
           aria-label="Close bar info section"
           onClick={this.props.closeBarView}>&times;</button>
         <BarDetails
-          name={this.props.barData.name}
-          description={this.props.barData.description} />
+          name={bar.name}
+          description={bar.description} />
         <BrewFilterContainer
-          brands={this.props.barData.brands} />
+          brands={bar.brands} />
         <BarMap
-          name={this.props.barData.name}
-          long={this.props.barData.longitude}
-          lat={this.props.barData.latitude} />
+          name={bar.name}
+          long={bar.longitude}
+          lat={bar.latitude} />
         <BarContactInfo
-          address={this.props.barData.address}
-          phone={this.props.barData.phone} />
+          address={bar.address}
+          phone={bar.phone} />
       </section>
     )
   }

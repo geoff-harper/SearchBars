@@ -27,7 +27,7 @@ class BarMap extends React.Component {
   render() {
     this.renderNewMap(this.props.isScriptLoaded, this.props.isScriptLoadSucceed);
     return (
-      <div className="map-container">
+      <div className="barView-map-container">
         <div className="map" ref="map"></div>
         { !this.map && <div className="center-md">Loading...</div> }
       </div>

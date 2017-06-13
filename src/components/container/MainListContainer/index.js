@@ -39,9 +39,7 @@ class MainListContainer extends React.Component {
       )
     }
 
-    const sortedBrands = Array.from(new Set(unsortedBrands));
-
-    return sortedBrands;
+    return Array.from(new Set(unsortedBrands));
   }
 
   getBars() {
