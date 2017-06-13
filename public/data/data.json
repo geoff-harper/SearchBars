@@ -7,17 +7,17 @@
       {
         "name": "Budweiser",
         "brews": ["lager"],
-        "onTap":"false"
+        "onTap": "false"
       },
       {
         "name": "33 Acres",
         "brews": ["lager", "pilsner"],
-        "onTap":"true"
+        "onTap": "true"
       },
       {
         "name": "Granville Island Lager",
         "brews": ["lager", "honey", "dark"],
-        "onTap":"true"
+        "onTap": "true"
       }
     ],
     "address": "1499 Anderson St, Vancouver, BC V6H 3R5",
@@ -33,17 +33,17 @@
       {
         "name": "Social Lager",
         "brews": ["lager"],
-        "onTap":"true"
+        "onTap": "true"
       },
       {
         "name": "Budweiser",
         "brews": ["lager", "light"],
-        "onTap":"false"
+        "onTap": "false"
       },
       {
         "name": "Granville Island Lager",
         "brews": ["lager", "honey", "dark"],
-        "onTap":"true"
+        "onTap": "true"
       }
     ],
     "address": "1540 Old Bridge St, Vancouver, BC V6H 3S6",

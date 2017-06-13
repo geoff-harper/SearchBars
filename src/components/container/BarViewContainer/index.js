@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BarDetails, BarMap, BarContactInfo } from 'components'
+import { BarDetails, BrewFilterContainer, BarMap, BarContactInfo } from 'components'
 
 class BarViewContainer extends React.Component {
   constructor () {
@@ -16,6 +16,8 @@ class BarViewContainer extends React.Component {
         <BarDetails
           name={this.props.barData.name}
           description={this.props.barData.description} />
+        <BrewFilterContainer
+          brands={this.props.barData.brands} />
         <BarMap
           name={this.props.barData.name}
           long={this.props.barData.longitude}

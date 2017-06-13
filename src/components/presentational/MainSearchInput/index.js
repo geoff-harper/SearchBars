@@ -42,6 +42,10 @@ class MainSearchInput extends React.Component {
     this.changeFilter(newValue);
   }
 
+  onFocus(event) {
+    event.target.value.length > 0 ? event.target.select() : null
+  }
+
   onSuggestionsFetchRequested = ({ value }) => {
     const suggestions = this.getSuggestions(value);
     const isInputBlank = value.trim() === '';
@@ -71,7 +75,8 @@ class MainSearchInput extends React.Component {
     const { value, suggestions } = this.state;
     const inputProps = {
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      onFocus: this.onFocus
     };
 
     return (
