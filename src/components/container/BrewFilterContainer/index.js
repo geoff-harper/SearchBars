@@ -31,23 +31,11 @@ class BrewFilterContainer extends React.Component {
   }
 
   toggleBrew(event) {
-    event.target.classList.toggle('activeBrew');
-
     const targetBrew = event.target.innerHTML;
     let _activeBrewFilters = [...this.state.activeBrewFilters];
 
     _activeBrewFilters.indexOf(targetBrew) === -1 ?
       _activeBrewFilters = [..._activeBrewFilters, targetBrew] : _activeBrewFilters = _activeBrewFilters.filter(activeBrew => activeBrew != targetBrew);
-
-    console.log(_activeBrewFilters);
-    // _activeBrewFilters.filter((activeBrew, i) => (
-    //   activeBrew == targetBrew)).length === 0 ?
-    //     _activeBrewFilters = [..._activeBrewFilters, targetBrew] : console.log(i);
-
-    // for(let activeBrew of _activeBrewFilters) {
-    //   activeBrew != targetBrew ?
-    //     _activeBrewFilters = [..._activeBrewFilters, targetBrew] : _activeBrewFilters.splice(activeBrew, 1);
-    // }
 
     this.setState({
       activeBrewFilters: _activeBrewFilters
@@ -60,7 +48,8 @@ class BrewFilterContainer extends React.Component {
         <h3>Brand List</h3>
         <BrewTags
           brews={this.getBrews()}
-          toggleBrew={this.toggleBrew} />
+          toggleBrew={this.toggleBrew}
+          activeBrewFilters={this.state.activeBrewFilters} />
         <BrandList brands={this.props.brands} />
       </div>
     )

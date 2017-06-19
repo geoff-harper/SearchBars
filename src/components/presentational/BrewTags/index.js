@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BrewTags = ({brews, toggleBrew}) => {
+const BrewTags = ({brews, toggleBrew, activeBrewFilters}) => {
 
   return (
     <ul className="brewFilterList">
@@ -8,7 +8,7 @@ const BrewTags = ({brews, toggleBrew}) => {
       {brews.map((brew, i) =>
         <li
           key={i}
-          className={`brewFilter-${brew.replace(/\s+/g, '-').toLowerCase()}`}
+          className={`brewFilter-${brew.replace(/\s+/g, '-').toLowerCase()}` + (activeBrewFilters.indexOf(brew) !== -1 ? ' activeBrew' : '')}
           onClick={toggleBrew}>{brew}</li>
       )}
     </ul>
