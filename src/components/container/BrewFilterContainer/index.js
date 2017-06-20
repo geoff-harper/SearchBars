@@ -50,7 +50,9 @@ class BrewFilterContainer extends React.Component {
           brews={this.getBrews()}
           toggleBrew={this.toggleBrew}
           activeBrewFilters={this.state.activeBrewFilters} />
-        <BrandList brands={this.props.brands} />
+        <BrandList
+          brands={this.props.brands}
+          activeBrewFilters={this.state.activeBrewFilters} />
       </div>
     )
   }
