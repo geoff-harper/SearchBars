@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const devServer = require('@webpack-blocks/dev-server2')
 const splitVendor = require('webpack-blocks-split-vendor')
 const happypack = require('webpack-blocks-happypack')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const {
   addPlugins, createConfig, entryPoint, env, setOutput,
@@ -17,6 +18,7 @@ const sourceDir = process.env.SOURCE || 'src'
 const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 const sourcePath = path.join(process.cwd(), sourceDir)
 const outputPath = path.join(process.cwd(), 'dist')
+const extractSass = new ExtractTextPlugin({ filename: "style.css" })
 
 const babel = () => () => ({
   module: {
@@ -34,12 +36,21 @@ const assets = () => () => ({
   },
 })
 
-const jsonL = () => () => ({
+const styles = () => () => ({
   module: {
     rules: [
-      { test: /\.json$/, exclude: /node_modules/, loader: 'json' },
-    ],
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
+      }
+    ]
   },
+  plugins: [
+    extractSass
+  ]
 })
 
 const resolveModules = modules => () => ({
@@ -72,6 +83,7 @@ const config = createConfig([
     babel(),
   ]),
   assets(),
+  styles(),
   resolveModules(sourceDir),
 
   env('development', [
