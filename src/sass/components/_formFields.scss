@@ -1,0 +1,76 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the form fields.
+// -----------------------------------------------------------------------------
+
+input {
+  border: none;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+.mainSearch {
+  .mainSearch-prompt {
+    color: $white;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  fieldset {
+    border-radius: 10px 10px 0 0;
+    z-index: 2;
+    overflow: hidden;
+    background: $white;
+
+    .react-autosuggest__suggestions-container {
+      .react-autosuggest__suggestions-list {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: stretch;
+      }
+
+      .react-autosuggest__suggestion {
+        list-style: none;
+        display: block;
+        margin: 0;
+        flex: 1 1 33.333%;
+        padding: $padding-default $padding-default 0.6rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $second-color;
+          color: $white;
+        }
+
+        .suggestion-image {
+          height: 1.5em;
+        }
+      }
+    }
+
+    .react-autosuggest__suggestions-container--open {
+      margin-bottom: 1.1rem;
+    }
+
+    .no-suggestions {
+      padding: $padding-default;
+    }
+  }
+
+  .mainSearch-input {
+    display: block;
+    padding: 1.4rem $padding-default;
+    font-size: 1.6rem;
+    width: 100%;
+    color: $mid-grey;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+    }
+  }
+}

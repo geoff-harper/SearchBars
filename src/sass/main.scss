@@ -20,8 +20,12 @@
 // 4. Layout-related sections
 @import
   'layout/header',
-  'layout/footer';
+  'layout/footer',
+  'layout/mainSearch';
 
 // 5. Components
 @import
-  'components/button';
+  'components/background',
+  'components/button',
+  'components/formFields',
+  'components/logo';

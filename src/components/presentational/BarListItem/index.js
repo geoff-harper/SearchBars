@@ -46,11 +46,11 @@ class BarListItem extends React.Component {
 
     return (
       <li onClick={this.barSelected}>
-        <h3>{this.props.name}</h3>
-        <p>{this.props.description}</p>
-        <ul>
+        <h3 className="subtitle">{this.props.name}</h3>
+        <ul className="mainSearch-results-beerList un-list">
+          <li>Beers: </li>
           {_brands.map((brand, i) =>
-            <li key={i}>{brand.name}</li>
+            (i === (_brands.length - 1)) ? <li key={i}>{brand.name} </li> : <li key={i}>{brand.name}, </li>
           )}
           <li onClick={this.toggleList}>{prompt}</li>
         </ul>

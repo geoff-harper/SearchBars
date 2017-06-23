@@ -1,3 +1,34 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+button {
+  padding: $padding-default;
+  border: none;
+  border-radius: 10px;
+  background: $brand-color;
+  color: $white;
+  cursor: pointer;
+
+  &:hover {
+    background: $second-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.mainSearch-button {
+  margin: 0 0.8rem;
+  background: $second-color;
+  line-height: 1.5em;
+
+  &:hover {
+   background: $dark-grey;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

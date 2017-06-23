@@ -3,5 +3,29 @@
  */
 body {
   color: $text-color;
-  font: normal 125% / 1.4 $text-font-stack;
+  font: normal 16px/1.5em $body-font;
+}
+
+h2 {
+  color: $brand-color;
+  font-size: 2.4rem;
+  font-family: $title-font;
+}
+
+h3 {
+  margin: 0;
+}
+
+.subtitle {
+  color: $second-color;
+  font-size: 1.5rem;
+  font-family: $title-font;
+  line-height: 1.1em;
+}
+
+.react-autosuggest__suggestion {
+  color: $mid-grey;
+  font-family: $title-font;
+  line-height: 1.1em;
+  font-size: 1.2rem;
 }

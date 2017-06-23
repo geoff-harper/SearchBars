@@ -26,7 +26,7 @@ const BarList = ({barData, searchFilter, barSelected}) => {
   }
 
   return (
-    <ul>
+    <ul className="mainSearch-results un-list">
       {filteredBars.map((bar) =>
         <BarListItem
           key={bar.id}

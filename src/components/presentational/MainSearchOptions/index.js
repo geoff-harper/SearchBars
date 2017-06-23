@@ -15,7 +15,7 @@ class MainSearchOptions extends React.Component {
   render() {
 
     return (
-      <p>I'm trying to find <button name="barButton" onClick={this.changeSuggestionCategory}>a bar's beer list</button> / <button name="beerButton" onClick={this.changeSuggestionCategory}>a certain beer</button> / <button name="anythingButton" onClick={this.changeSuggestionCategory}>anything</button>.</p>
+      <p className="mainSearch-prompt">I'm trying to find <button name="barButton" className="mainSearch-button" onClick={this.changeSuggestionCategory}>a bar's beer list</button> / <button name="beerButton" className="mainSearch-button" onClick={this.changeSuggestionCategory}>a certain beer</button> / <button name="anythingButton" className="mainSearch-button" onClick={this.changeSuggestionCategory}>anything</button></p>
     )
   }
 }

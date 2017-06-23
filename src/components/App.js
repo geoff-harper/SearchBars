@@ -8,7 +8,6 @@ import { Landing } from 'components'
 import theme from './themes/default'
 
 injectGlobal`
-  .logo-container { max-width: 200px; opacity: 0; }
   fieldset { border: none; }
   .map {height: 200px; width: 200px}
   .activeBrew {color: red;}

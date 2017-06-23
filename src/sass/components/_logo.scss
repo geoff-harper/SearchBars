@@ -1,5 +1,9 @@
 // -----------------------------------------------------------------------------
-// This file contains all @font-face declarations, if any.
+// This file contains all styles related to the logo.
 // -----------------------------------------------------------------------------
 
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina|Montserrat:400,400i,600');
+.logo-container {
+  max-width: 50%;
+  margin: 60px auto;
+  opacity: 1;
+}

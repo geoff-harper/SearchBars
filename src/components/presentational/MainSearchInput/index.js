@@ -1,6 +1,8 @@
 import React from 'react'
 import Autosuggest from 'react-autosuggest'
 
+import beerIcon from './icon_beer.svg'
+
 class MainSearchInput extends React.Component {
   constructor() {
     super();
@@ -32,7 +34,7 @@ class MainSearchInput extends React.Component {
   }
 
   renderSuggestion = suggestion => (
-    suggestion
+    <div><img alt="Beer icon" src={beerIcon} className="suggestion-image" /><span>{suggestion}</span></div>
   )
 
   onChange = (event, { newValue, method }) => {
@@ -76,7 +78,9 @@ class MainSearchInput extends React.Component {
     const inputProps = {
       value,
       onChange: this.onChange,
-      onFocus: this.onFocus
+      onFocus: this.onFocus,
+      className: "mainSearch-input",
+      placeholder: "Enter your search..."
     };
 
     return (

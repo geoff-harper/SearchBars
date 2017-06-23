@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the main search section.
+// -----------------------------------------------------------------------------
+
+.mainSearch {
+  margin: 0 auto;
+  width: 66%;
+
+  .mainSearch-results {
+    background: $white;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+
+    & > li {
+      display: block;
+      padding: $padding-default;
+    }
+
+    .mainSearch-results-beerList {
+      li {
+        display: inline;
+
+        &:first-of-type {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

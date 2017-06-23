@@ -70,7 +70,7 @@ class MainListContainer extends React.Component {
     const filteredList = this.filterList();
 
     return (
-      <section>
+      <section className="mainSearch">
         <form>
           <MainSearchOptions changeSuggestionCategory={this.changeSuggestionCategory} />
           <MainSearchInput filteredList={filteredList} changeFilter={this.changeFilter} />
