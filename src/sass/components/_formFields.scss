@@ -19,27 +19,37 @@ fieldset {
   }
 
   fieldset {
-    border-radius: 10px 10px 0 0;
     z-index: 2;
     overflow: hidden;
+    border-radius: 10px 10px 0 0;
     background: $white;
 
     .react-autosuggest__suggestions-container {
       .react-autosuggest__suggestions-list {
+        display: flex;
         margin: 0;
         padding: 0;
-        display: flex;
+
         flex-flow: row wrap;
         align-items: stretch;
       }
 
       .react-autosuggest__suggestion {
-        list-style: none;
         display: block;
         margin: 0;
-        flex: 1 1 33.333%;
         padding: $padding-default $padding-default 0.6rem;
+        list-style: none;
         cursor: pointer;
+
+        flex: 1 1 33.333%;
+
+        div {
+          display: flex;
+
+          flex-flow: row nowrap;
+          align-items: center;
+
+        }
 
         &:hover {
           background-color: $second-color;
@@ -47,7 +57,14 @@ fieldset {
         }
 
         .suggestion-image {
+          display: block;
           height: 1.5em;
+          margin: -7px 5px 0 0;
+        }
+
+        span {
+          display: block;
+
         }
       }
     }
@@ -64,9 +81,9 @@ fieldset {
   .mainSearch-input {
     display: block;
     padding: 1.4rem $padding-default;
-    font-size: 1.6rem;
     width: 100%;
     color: $mid-grey;
+    font-size: 1.6rem;
 
     &:focus {
       outline: none;
