@@ -54,11 +54,11 @@ class MainListContainer extends React.Component {
 
   filterList() {
     if(this.state.activeButton === "barButton") {
-      return [...this.getBars()];
+      return [...this.getBars()].sort();
     } else if(this.state.activeButton === "beerButton") {
-      return [...this.getBrands()];
+      return [...this.getBrands()].sort();
     } else {
-      return [...this.getBars(),...this.getBrands()];
+      return [...this.getBars(),...this.getBrands()].sort();
     }
   }
 

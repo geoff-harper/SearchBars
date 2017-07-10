@@ -16,5 +16,14 @@
 
   <main id="app" class="container"></main>
 
+  <script>
+    var bgAdd = setTimeout(function() {
+      document.body.className += 'bg';
+      var fadeIN = setTimeout(function() {
+        document.getElementById('app').style.opacity = '1';
+      }, 2200);
+    }, 1000);
+  </script>
+
 </body>
 </html>

@@ -34,7 +34,7 @@ class MainSearchInput extends React.Component {
   }
 
   renderSuggestion = suggestion => (
-    <div><img alt="Beer icon" src={beerIcon} className="suggestion-image" /><span>{suggestion}</span></div>
+    <div><img alt="Beer icon" src={beerIcon} className="suggestion-image" />{suggestion}</div>
   )
 
   onChange = (event, { newValue, method }) => {
@@ -97,7 +97,7 @@ class MainSearchInput extends React.Component {
         {
           this.state.noSuggestions &&
             <p className="no-suggestions">
-              No suggestions
+              No suggestions, try something else!
             </p>
         }
       </fieldset>

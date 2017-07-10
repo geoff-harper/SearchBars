@@ -2,16 +2,46 @@
 // This file contains all styles related to the background.
 // -----------------------------------------------------------------------------
 
-body::before {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: calc(100% - 200px);
-  background-color: rgba(198,120,43,1);
-  background-image: linear-gradient(to bottom, rgba(227,160,57,1) 0%, rgba(198,120,43,1) 100%);
-  background-size: 100% calc(100vh - 200px);
-  background-repeat: no-repeat;
-  content: '';
+body {
+  background-image: url("/images/body_bg.jpg");
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    background-repeat: no-repeat;
+    content: '';
+    transition: transform linear 2s;
+  }
+
+  &::before {
+    bottom: 0;
+    height: calc(100% - 200px);
+    border: 10px solid white;
+    background-color: rgba(198,120,43,1);
+    background-image: linear-gradient(to bottom, rgba(227,160,57,1) 0%, rgba(198,120,43,1) 100%);
+    background-size: 100% calc(100vh - 200px);
+    transform: translateY(100vh);
+  }
+
+  &::after {
+    top: 0;
+    height: 200px;
+    background-image: url("/images/bubbles.svg");
+    background-size: auto 200px;
+    transform: translateY(100vh);
+  }
+
+  &.bg::before,
+  &.bg::after {
+    transform: translateY(0);
+  }
+}
+
+#app {
+  opacity: 0;
+  transition: opacity linear 0.3s;
 }
