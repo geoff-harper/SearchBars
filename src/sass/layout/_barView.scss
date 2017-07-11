@@ -1,0 +1,21 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the bar view
+// -----------------------------------------------------------------------------
+
+.barView {
+  position: relative;
+  padding: $padding-default 1.5rem;
+  border-radius: 10px 10px;
+  background-color: $white;
+  margin-bottom: 10rem;
+
+  flex-basis: 48%;
+
+  .closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 1rem 0.6rem;
+    font-size: 1.6rem;
+  }
+}

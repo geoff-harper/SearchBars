@@ -3,13 +3,12 @@ import React from 'react'
 const BrandList = ({brands, activeBrewFilters}) => {
 
   return (
-    <ul className="brewList">
+    <ul className="brewList un-list clearfix">
       {activeBrewFilters.length === 0 ?
         brands.map((brand, i) =>
-          <li key={i}>
-            {brand.name} {brand.brews.map((brew, i) => (
-                i === (brand.brews.length - 1) ?
-                  <span key={i} className="brewList-brandType">{brew}</span> : <span key={i} className="brewList-brandType">{brew}, </span>
+          <li className="brandFull" key={i}>
+            {brand.name}: {brand.brews.map((brew, i) => (
+                <span key={i} className={`brewList-${brew.replace(/\s+/g, '-').toLowerCase()}`}>{brew}</span>
             ))}
           </li>
         )
@@ -18,7 +17,7 @@ const BrandList = ({brands, activeBrewFilters}) => {
           for(let brew of brand.brews) {
             activeBrewFilters.indexOf(brew) !== -1 ? brewMatched = brewMatched || true : brewMatched = brewMatched || false
           }
-          if(brewMatched) return(<li key={i}>{brand.name}</li>)
+          if(brewMatched) return(<li key={i} className="brandCondensed">{brand.name}</li>)
         }
       )}
     </ul>
@@ -26,3 +25,6 @@ const BrandList = ({brands, activeBrewFilters}) => {
 }
 
 export default BrandList
+
+// i === (brand.brews.length - 1) ?
+//   <span key={i} className={`brewList-${brew.replace(/\s+/g, '-').toLowerCase()}`}>{brew}</span> : <span key={i} className={`brewList-${brew.replace(/\s+/g, '-').toLowerCase()}`}>{brew}, </span>

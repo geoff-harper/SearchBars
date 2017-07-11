@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the bar view brand list.
+// -----------------------------------------------------------------------------
+
+.brewList {
+  margin-bottom: $bottom-margin;
+
+  .brandCondensed {
+    float: left;
+    margin: 0 0.5rem 0.5rem 0;
+    padding: 0.2rem 0.4rem;
+    background-color: $light-grey;
+    color: $dark-grey;
+  }
+
+  .brandFull {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+
+    span {
+      margin: 0 0.5rem 0.5rem 0;
+      padding: 0.2rem 0.4rem;
+      background-color: $light-grey;
+      color: $dark-grey;
+      font-weight: normal;
+    }
+  }
+}

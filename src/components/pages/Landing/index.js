@@ -24,8 +24,7 @@ class Landing extends React.Component {
   }
 
   barSelected(barID) {
-    const _selectedBar = this.state.barData.filter(bar => (
-      bar.id === barID))
+    const _selectedBar = this.state.barData.filter(bar => (bar.id === barID))
 
     this.setState({
       selectedBar: _selectedBar[0],
@@ -45,7 +44,8 @@ class Landing extends React.Component {
         <Header />
         <MainListContainer
           barData={this.state.barData}
-          barSelected={this.barSelected}  />
+          barSelected={this.barSelected}
+          barViewOpen={this.state.barViewOpen}  />
         { this.state.barViewOpen ?
           <BarViewContainer
             barData={this.state.selectedBar}

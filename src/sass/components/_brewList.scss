@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the bar view brew list.
+// -----------------------------------------------------------------------------
+
+.brewFilterList {
+  margin-bottom: 1rem;
+
+  li {
+    float: left;
+    margin-right: 0.4rem;
+
+    &:first-child {
+      color: $mid-grey;
+      font-weight: bold;
+      padding: 0.2rem 0;
+    }
+
+    &:not(:first-child) {
+      padding: 0.2rem 0.4rem;
+      background-color: $dark-grey;
+      color: $white;
+      cursor: pointer;
+
+      &:hover,
+      &.activeBrew {
+        background-color: $second-color;
+        color: $white;
+      }
+    }
+
+    &.brewFilter-lager { background-color: $lager; }
+    &.brewFilter-pilsner { background-color: $pilsner; }
+    &.brewFilter-honey { background-color: $honey; }
+    &.brewFilter-dark { background-color: $dark; }
+    &.brewFilter-light { background-color: $light; color: $dark-grey; }
+  }
+
+}

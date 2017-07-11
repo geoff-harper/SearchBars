@@ -70,7 +70,7 @@ class MainListContainer extends React.Component {
     const filteredList = this.filterList();
 
     return (
-      <section className="mainSearch">
+      <section className={this.props.barViewOpen ? "mainSearch barViewOpen" : "mainSearch"}>
         <form>
           <MainSearchOptions changeSuggestionCategory={this.changeSuggestionCategory} activeButton={this.state.activeButton} />
           <MainSearchInput filteredList={filteredList} changeFilter={this.changeFilter} />

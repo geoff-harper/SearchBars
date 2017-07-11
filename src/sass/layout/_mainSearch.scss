@@ -3,17 +3,28 @@
 // -----------------------------------------------------------------------------
 
 .mainSearch {
-  margin: 0 auto;
-  width: 66%;
+  margin-bottom: 10rem;
+
+  flex: 0 1 66%;
 
   .mainSearch-results {
-    background: $white;
+    overflow: hidden;
     border-radius: 0 0 10px 10px;
+    background: $white;
     cursor: pointer;
 
     & > li {
       display: block;
       padding: $padding-default;
+
+      &:hover {
+        background-color: $second-color;
+        color: $white;
+
+        h3.subtitle {
+          color: $white;
+        }
+      }
     }
 
     .mainSearch-results-beerList {
@@ -26,4 +37,8 @@
       }
     }
   }
+}
+
+.mainSearch.barViewOpen {
+  flex-basis: 48%;
 }

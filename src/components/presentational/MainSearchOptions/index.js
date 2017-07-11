@@ -27,9 +27,8 @@ class MainSearchOptions extends React.Component {
   }
 
   render() {
-
     return (
-      <p className="mainSearch-prompt">I'm trying to find {this.setButton("barButton")} / {this.setButton("beerButton")} / {this.setButton("anythingButton")}</p>
+      <p className="mainSearch-prompt clearfix"><span className="mainSearch-prompt_text">I'm trying to find </span>{this.setButton("barButton")}<span> / </span>{this.setButton("beerButton")}<span> / </span>{this.setButton("anythingButton")}</p>
     )
   }
 }

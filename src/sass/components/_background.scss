@@ -14,7 +14,9 @@ body {
     width: 100%;
     background-repeat: no-repeat;
     content: '';
-    transition: transform linear 2s;
+    transition: transform ease-out 2s;
+    transform: translateY(100vh);
+    // transform: translateY(0);
   }
 
   &::before {
@@ -24,7 +26,6 @@ body {
     background-color: rgba(198,120,43,1);
     background-image: linear-gradient(to bottom, rgba(227,160,57,1) 0%, rgba(198,120,43,1) 100%);
     background-size: 100% calc(100vh - 200px);
-    transform: translateY(100vh);
   }
 
   &::after {
@@ -32,7 +33,6 @@ body {
     height: 200px;
     background-image: url("/images/bubbles.svg");
     background-size: auto 200px;
-    transform: translateY(100vh);
   }
 
   &.bg::before,

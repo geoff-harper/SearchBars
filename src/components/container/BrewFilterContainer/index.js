@@ -45,7 +45,7 @@ class BrewFilterContainer extends React.Component {
   render() {
     return (
       <div className="barView-beer-list">
-        <h3>Brand List</h3>
+        <h3 className="subtitle">Brand List</h3>
         <BrewTags
           brews={this.getBrews()}
           toggleBrew={this.toggleBrew}

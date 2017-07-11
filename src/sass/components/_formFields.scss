@@ -9,6 +9,7 @@ input {
 fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 .mainSearch {
@@ -41,14 +42,13 @@ fieldset {
         list-style: none;
         cursor: pointer;
 
-        flex: 1 1 33.333%;
+        flex: 0 1 33.333%;
 
         div {
           display: flex;
 
           flex-flow: row nowrap;
           align-items: center;
-
         }
 
         &:hover {
@@ -58,8 +58,8 @@ fieldset {
 
         .suggestion-image {
           display: block;
-          height: 1.5em;
           margin: -7px 5px 0 0;
+          height: 1.5em;
         }
 
         span {
@@ -89,5 +89,24 @@ fieldset {
       outline: none;
       box-shadow: 0 0 10px rgba(81, 203, 238, 1);
     }
+  }
+}
+
+.mainSearch.barViewOpen {
+  .mainSearch-prompt {
+    .mainSearch-prompt_text {
+      display: block;
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    span:not(.mainSearch-prompt_text) {
+      display: none;
+    }
+  }
+
+  fieldset .react-autosuggest__suggestions-container .react-autosuggest__suggestion {
+    flex: 0 1 50%;
   }
 }

@@ -3,8 +3,8 @@ import React from 'react'
 const BrewTags = ({brews, toggleBrew, activeBrewFilters}) => {
 
   return (
-    <ul className="brewFilterList">
-      <li>Filter: </li>
+    <ul className="brewFilterList un-list clearfix">
+      <li>Filters: </li>
       {brews.map((brew, i) =>
         <li
           key={i}

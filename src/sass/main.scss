@@ -20,7 +20,8 @@
 // 4. Layout-related sections
 @import
   'layout/header',
-  'layout/footer',
+  'layout/wrapper',
+  'layout/barView',
   'layout/mainSearch';
 
 // 5. Components
@@ -28,4 +29,7 @@
   'components/background',
   'components/button',
   'components/formFields',
+  'components/brewList',
+  'components/brandList',
+  'components/barDetails',
   'components/logo';

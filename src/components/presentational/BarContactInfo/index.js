@@ -7,8 +7,9 @@ const BarContactInfo = ({address, phone}) => {
 
   return (
     <div className="barView-contact">
-      <p>{address}</p>
-      <p><a href={`tel:${phoneLink}`}>{phone}</a></p>
+      <h3 className="subtitle">Bar Details</h3>
+      <p className="address">{address}</p>
+      <p className="phoneNumber">Call: <a href={`tel:${phoneLink}`}>{phone}</a></p>
     </div>
   )
 }
