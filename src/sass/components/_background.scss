@@ -3,8 +3,15 @@
 // -----------------------------------------------------------------------------
 
 body {
-  background-image: url("/images/body_bg.jpg");
   overflow: hidden;
+  background-image: url("/images/body_bg.jpg");
+  background-position: top center;
+  background-size: auto 100vh;
+  background-repeat: no-repeat;
+
+  @media #{$tablet} {
+    background-image: url("/images/body_bg_mobile.jpg");
+  }
 
   &::before,
   &::after {
@@ -15,24 +22,44 @@ body {
     background-repeat: no-repeat;
     content: '';
     transition: transform ease-out 2s;
-    transform: translateY(100vh);
-    // transform: translateY(0);
+    transform: translateY(0);
+    // transform: translateY(100vh);
   }
 
   &::before {
     bottom: 0;
-    height: calc(100% - 200px);
+    height: calc(100% - #{$header-height-desktop});
     border: 10px solid white;
     background-color: rgba(198,120,43,1);
     background-image: linear-gradient(to bottom, rgba(227,160,57,1) 0%, rgba(198,120,43,1) 100%);
-    background-size: 100% calc(100vh - 200px);
+    background-size: 100% calc(100vh - #{$header-height-desktop});
+
+    @media #{$tablet} {
+      height: calc(100% - #{$header-height-tablet});
+      background-size: 100% calc(100vh - #{$header-height-tablet});
+    }
+
+    @media #{$phone} {
+      height: calc(100% - #{$header-height-phone});
+      background-size: 100% calc(100vh - #{$header-height-phone});
+    }
   }
 
   &::after {
     top: 0;
-    height: 200px;
+    height: $header-height-desktop;
     background-image: url("/images/bubbles.svg");
-    background-size: auto 200px;
+    background-size: auto $header-height-desktop;
+
+    @media #{$tablet} {
+      height: $header-height-tablet;
+      background-size: auto $header-height-tablet;
+    }
+
+    @media #{$phone} {
+      height: $header-height-phone;
+      background-size: auto $header-height-phone;
+    }
   }
 
   &.bg::before,
@@ -42,6 +69,6 @@ body {
 }
 
 #app {
-  opacity: 0;
+  // opacity: 0;
   transition: opacity linear 0.3s;
 }

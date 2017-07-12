@@ -21,11 +21,24 @@ button {
 
 .mainSearch-button {
   margin: 0 0.8rem;
-  line-height: 1.5em;
   font-size: 1.2rem;
+  line-height: 1.5em;
 
   &:last-of-type {
     margin-right: 0;
+  }
+
+  @media #{$tablet} {
+    display: block;
+    float: left;
+    margin: 0 2% 0 0;
+    width: 32%;
+  }
+
+  @media #{$phone} {
+    float: none;
+    margin: 0 0 1rem 0;
+    width: 100%;
   }
 }
 
@@ -36,12 +49,25 @@ button {
 .mainSearch.barViewOpen {
   .mainSearch-button {
     display: block;
-    width: 32%;
-    margin: 0 2% 0 0;
     float: left;
+    margin: 0 2% 0 0;
+    width: 32%;
 
     &:last-of-type {
       margin: 0;
+    }
+
+    @media #{$tablet} {
+      display: block;
+      float: left;
+      margin: 0 2% 0 0;
+      width: 32%;
+    }
+
+    @media #{$phone} {
+      float: none;
+      margin: 0 0 1rem 0;
+      width: 100%;
     }
   }
 }

@@ -17,6 +17,21 @@ fieldset {
     color: $white;
     text-align: center;
     font-weight: bold;
+
+    span:not(.mainSearch-prompt_text) {
+      @media #{$tablet} {
+        display: none;
+      }
+    }
+
+    .mainSearch-prompt_text {
+      @media #{$tablet} {
+        display: block;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
 
   fieldset {
@@ -44,6 +59,14 @@ fieldset {
 
         flex: 0 1 33.333%;
 
+        @media #{$tablet} {
+          flex-basis: 50%;
+        }
+
+        @media #{$phone} {
+          flex-basis: 100%;
+        }
+
         div {
           display: flex;
 
@@ -64,7 +87,6 @@ fieldset {
 
         span {
           display: block;
-
         }
       }
     }
@@ -84,6 +106,10 @@ fieldset {
     width: 100%;
     color: $mid-grey;
     font-size: 1.6rem;
+
+    @media #{$phone} {
+      font-size: 1.2rem;
+    }
 
     &:focus {
       outline: none;

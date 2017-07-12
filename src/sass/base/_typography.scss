@@ -4,6 +4,10 @@
 body {
   color: $text-color;
   font: normal 16px/1.5em $body-font;
+
+  @media #{$phone} {
+    font-size: 15px;
+  }
 }
 
 h2 {

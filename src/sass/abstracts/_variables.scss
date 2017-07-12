@@ -71,13 +71,22 @@ $bottom-margin: 2rem !default;
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
   'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
+  'medium': 767px,
+  'large': 1200px,
 ) !default;
 
+$smallPhone: "only screen and (max-width: 320px)";
+$phone: "only screen and (max-width: 767px)";
+$tabletPlus: "only screen and (min-width: 768px)";
+$tablet: "only screen and (max-width: 1199px)";
+$desktop: "only screen and (min-width: 1200px)";
 
 
-
+/// Default padding
+/// @type Length
+$header-height-desktop: 200px !default;
+$header-height-tablet: 125px !default;
+$header-height-phone: 75px !default;
 
 
 /// Relative or absolute URL where all assets are served from

@@ -9,6 +9,10 @@
     float: left;
     margin-right: 0.4rem;
 
+    @media #{$phone} {
+      margin-bottom: 6px;
+    }
+
     &:first-child {
       color: $mid-grey;
       font-weight: bold;

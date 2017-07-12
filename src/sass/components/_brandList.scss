@@ -23,6 +23,11 @@
       background-color: $light-grey;
       color: $dark-grey;
       font-weight: normal;
+
+      @media #{$phone} {
+        display: inline-block;
+        margin-bottom: 6px;
+      }
     }
   }
 }

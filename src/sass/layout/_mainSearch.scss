@@ -3,9 +3,17 @@
 // -----------------------------------------------------------------------------
 
 .mainSearch {
-  margin-bottom: 10rem;
+  // margin-bottom: 8rem;
+  margin-bottom: 800vh;
 
   flex: 0 1 66%;
+
+  @media #{$tablet} {
+    margin-bottom: 4rem;
+
+    flex-basis: 90%;
+    order: 2;
+  }
 
   .mainSearch-results {
     overflow: hidden;
@@ -41,4 +49,8 @@
 
 .mainSearch.barViewOpen {
   flex-basis: 48%;
+
+  @media #{$tablet} {
+    flex-basis: 90%;
+  }
 }
