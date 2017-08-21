@@ -15,10 +15,10 @@ const {
 const host = process.env.HOST || 'localhost'
 const port = process.env.PORT || 3000
 const sourceDir = process.env.SOURCE || 'src'
-const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
+const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '')
 const sourcePath = path.join(process.cwd(), sourceDir)
 const outputPath = path.join(process.cwd(), 'dist')
-const extractSass = new ExtractTextPlugin({ filename: "style.css" })
+const extractSass = new ExtractTextPlugin({ filename: "css/main.css" })
 
 const babel = () => () => ({
   module: {
@@ -31,7 +31,7 @@ const babel = () => () => ({
 const assets = () => () => ({
   module: {
     rules: [
-      { test: /\.(png|jpe?g|svg|woff2?|ttf|eot)$/, loader: 'url-loader?limit=8000' },
+      { test: /\.(png|jpe?g|svg|woff2?|ttf|eot|json)$/, loader: 'file-loader', options: { limit: 10000, name: 'assets/[name].[ext]' }},
     ],
   },
 })
