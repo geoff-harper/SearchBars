@@ -8,6 +8,7 @@
   li {
     float: left;
     margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
 
     @media #{$phone} {
       margin-bottom: 6px;
@@ -37,6 +38,13 @@
     &.brewFilter-honey { background-color: $honey; }
     &.brewFilter-dark { background-color: $dark; }
     &.brewFilter-light { background-color: $light; color: $dark-grey; }
+    &.brewFilter-english { background-color: $english; }
+    &.brewFilter-stout { background-color: $stout; }
+    &.brewFilter-ipa { background-color: $ipa; }
+    &.brewFilter-pale { background-color: $pale; color: $dark-grey; }
+    &.brewFilter-amber { background-color: $amber; }
+    &.brewFilter-seasonal { background-color: $seasonal; }
+    &.brewFilter-white { background-color: $white-beer; color: $dark-grey; }
   }
 
 }
