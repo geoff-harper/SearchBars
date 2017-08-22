@@ -31,7 +31,7 @@ const babel = () => () => ({
 const assets = () => () => ({
   module: {
     rules: [
-      { test: /\.(png|jpe?g|svg|woff2?|ttf|eot|json)$/, loader: 'file-loader', options: { limit: 10000, name: 'assets/[name].[ext]' }},
+      { test: /\.(png|jpe?g|svg|woff2?|ttf|eot|json)$/, loader: 'file-loader', options: { name: 'assets/[name].[ext]' }},
     ],
   },
 })
@@ -43,6 +43,7 @@ const styles = () => () => ({
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
+          publicPath: publicPath,
           use: ['css-loader', 'sass-loader']
         })
       }

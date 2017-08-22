@@ -1,5 +1,9 @@
 import React from 'react'
 import Axios from 'axios'
+import DATA from './DATA.js'
+import BodyBg from './body_bg.jpg'
+import BodyBgMobile from './body_bg_mobile.jpg'
+import Bubbles from './bubbles.svg'
 
 import { Header, MainListContainer, BarViewContainer } from 'components'
 
@@ -8,19 +12,13 @@ class Landing extends React.Component {
     super()
 
     this.state = {
-      barData: [],
+      barData: DATA,
       selectedBar: {},
       barViewOpen: false
     }
 
     this.barSelected = this.barSelected.bind(this);
     this.closeBarView = this.closeBarView.bind(this);
-  }
-
-  componentWillMount() {
-    Axios.get('./data/data.json').then(response => {
-      this.setState({ barData: response.data })
-    }).catch(console.log.bind(console));
   }
 
   barSelected(barID) {

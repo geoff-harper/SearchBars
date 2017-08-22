@@ -17,7 +17,7 @@ class MainSearchInput extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({ suggestions: [...this.props.filteredList] })
+    this.setState({ suggestions: [...this.props.filteredList] });
   }
 
   getSuggestions(value) {

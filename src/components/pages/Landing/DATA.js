@@ -1,4 +1,4 @@
-[
+const DATA = [
   {
     "id": "1",
     "name": "The Keg",
@@ -52,3 +52,4 @@
     "phone": "(604) 647-2287"
   }
 ]
+export default DATA
