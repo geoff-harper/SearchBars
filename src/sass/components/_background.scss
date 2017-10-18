@@ -11,6 +11,7 @@ body {
 
   @media #{$tablet} {
     background-image: url("/assets/body_bg_mobile.jpg");
+    background-size: cover;
   }
 
   &::before,
