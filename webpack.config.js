@@ -6,6 +6,7 @@ const devServer = require('@webpack-blocks/dev-server2')
 const splitVendor = require('webpack-blocks-split-vendor')
 const happypack = require('webpack-blocks-happypack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const {
   addPlugins, createConfig, entryPoint, env, setOutput,
@@ -17,7 +18,7 @@ const port = process.env.PORT || 3000
 const sourceDir = process.env.SOURCE || 'src'
 const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '')
 const sourcePath = path.join(process.cwd(), sourceDir)
-const outputPath = path.join(process.cwd(), 'dist')
+const outputPath = path.join(process.cwd(), 'docs')
 const extractSass = new ExtractTextPlugin({ filename: "css/main.css" })
 
 const babel = () => () => ({
@@ -106,6 +107,7 @@ const config = createConfig([
     splitVendor(),
     addPlugins([
       new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+      new OptimizeCssAssetsPlugin()
     ]),
   ]),
 ])
